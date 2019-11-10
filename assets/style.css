@@ -1,0 +1,49 @@
+body {
+    font-family: Arial;
+    font-size: 120%;
+    background-color: slategrey;
+  }
+
+.highscore {
+    float: left;
+    
+}
+.timer {
+    float:right;
+    
+}
+
+hr {
+  /* Need to get <hr> break below "Highscores" and "Timer */
+}
+
+h1 {
+    text-align: center;
+    text-emphasis: bold;
+}
+
+p {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+#start {
+    margin:0 auto; 
+
+}
+
+button {
+    text-align: center;
+    font-size: x-large;
+}
+
+.container {
+    padding: 30px;
+    width: 60vw;
+    margin:0 auto;
+    border: 30px;
+    background-color: silver;
+}
