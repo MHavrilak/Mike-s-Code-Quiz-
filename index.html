@@ -13,14 +13,18 @@
     <br>
     <hr>
     <div class="container">
+        <div id="startscreen">
     <h1>Mike's Coding Quiz Challenge!</h1>
     <p>Click 'Start' to start the quiz. Answer as many questions as you can in the alloted time.</p>
     <p>You will be penalized for every wrong answer! And GO!</p>
-        <p><button id="start">Start</button></p>
+        <p><button id="start">Start</button></p></div>
         <div>
-        <div id="questions" class="hide"></div>
+        <div id="questions" class="hide">
+        
+       <p id="result"></p>     
         <h2 id="questions-title"></h2>
         <div id="choices" class="choices"></div>
+        </div>
         </div>
 
         <div id="end-screen" class="hide">
@@ -29,7 +33,7 @@
             <p>Enter Initials: <input type="text" id="initials" max="3" /></p>
         </div>
         </div>
-        <script src="./assets/js/questions.js"></script>
-    <script src="./assets/js/logic.js"></script>
+        <script src="./assets/questions.js"></script>
+    <script src="./assets/logic.js"></script>
 </body>
 </html>

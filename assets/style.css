@@ -6,6 +6,7 @@ body {
 
 .highscore {
     float: left;
+    text
     
 }
 .timer {
@@ -13,8 +14,8 @@ body {
     
 }
 
-hr {
-  /* Need to get <hr> break below "Highscores" and "Timer */
+.hide {
+    display: none;
 }
 
 h1 {
