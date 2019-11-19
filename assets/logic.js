@@ -3,9 +3,10 @@ var stbutt
 var time = 75;
 var timer = document.getElementById("time");
 
+
 var currQuest = 0;
 
-
+// Function to scroll through questions
 function nextQuestion() {
   var questTitl
   questTitl = document.getElementById("questions-title");
@@ -14,7 +15,7 @@ function nextQuestion() {
     var choicDiv
     choicDiv = document.getElementById("choices");
     
-
+//  Loop to determine if answer if correct or wrong
   for(var i = 0; i < questions[currQuest].choices.length; i++) {
     var choices = document.createElement("button");
     choices.addEventListener("click", function() {
@@ -25,7 +26,7 @@ function nextQuestion() {
     
     if (answer == currAnswer) {
       result.innerText = "correct";
-      currScore ++;
+      currScore + 10;
     } else { 
       result.innerText = "wrong";
       time = time - 10;
@@ -43,7 +44,7 @@ function nextQuestion() {
     choicDiv.appendChild(choices)
   }
 }
-
+// Takes you from landing page to quesions page
 stbutt = document.getElementById("start");
 stbutt.addEventListener("click", function(){
   var trivQuest
@@ -62,4 +63,15 @@ stbutt.addEventListener("click", function(){
     }
     
   }, 1000);
-}) 
+})
+var finscore = "";
+
+function(initials, score) {
+  var scoreEl = document.createElement("ol"),
+    i, scoreText;
+    ScriptProcessorNode.sort(function(a, b) {return b.score - a.score;});
+    scoreEl.appendChild(document.createElement('li'));
+    scoreText = scores[i].score + ":" + scores[i].name
+    scoresEl.lastCHild.appendChild(document.createText(scoreText));
+  localStorage.setItem(finscore);
+} parent.appendChild(scoresEl);
