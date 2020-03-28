@@ -2,9 +2,21 @@ var currScore = 0;
 var stbutt
 var time = 75;
 var timer = document.getElementById("time");
+var scoreEl = document.getElementById('final-score');
+var nameEl = document.getElementById('initials');
+
 
 
 var currQuest = 0;
+
+var interval = setInterval(function() {
+  time --;
+  timer.innerText = time;
+  if (time <= 0) {
+    clearInterval(interval);
+  }
+  
+}, 1000);
 
 // Function to scroll through questions
 function nextQuestion() {
@@ -26,7 +38,7 @@ function nextQuestion() {
     
     if (answer == currAnswer) {
       result.innerText = "correct";
-      currScore + 10;
+      currScore = currScore + 10;
     } else { 
       result.innerText = "wrong";
       time = time - 10;
@@ -35,13 +47,20 @@ function nextQuestion() {
 
     choicDiv.innerHTML = "";
 
-    nextQuestion()
+    if (currQuest < questions.length) {nextQuestion()
     setTimeout(function() {
       result.innerText = "";
     }, 1500);
-    })
-    choices.innerText = questions[currQuest].choices[i]
-    choicDiv.appendChild(choices)
+
+    
+    } else {
+      // alert ("You Final Score is " + currScore)
+      endQuiz(currScore);
+      // endScreen = getElementById("end-screen")
+    }
+  })
+  choices.innerText = questions[currQuest].choices[i]
+  choicDiv.appendChild(choices)
   }
 }
 // Takes you from landing page to quesions page
@@ -55,23 +74,59 @@ stbutt.addEventListener("click", function(){
   stScreen.style.display = "none";
   console.log(trivQuest);
   nextQuestion()
-  var interval = setInterval(function() {
-    time --;
-    timer.innerText = time;
-    if (time <= 0) {
-      clearInterval(interval);
-    }
-    
-  }, 1000);
+
 })
+
+
 var finscore = "";
 
-function(initials, score) {
-  var scoreEl = document.createElement("ol"),
-    i, scoreText;
-    ScriptProcessorNode.sort(function(a, b) {return b.score - a.score;});
-    scoreEl.appendChild(document.createElement('li'));
-    scoreText = scores[i].score + ":" + scores[i].name
-    scoresEl.lastCHild.appendChild(document.createText(scoreText));
-  localStorage.setItem(finscore);
-} parent.appendChild(scoresEl);
+function endQuiz(currScore) {
+  clearInterval(interval);
+  alert(currScore);
+  document.getElementById("final-score").innerHTML=currScore
+ 
+
+  var endScreen = document.getElementById("questions");
+
+  endScreen.style.display="block";
+
+  document.getElementById("questions").style.display="none";
+
+  document.getElementById("end-screen").style.display="block";
+
+  
+  // endScreen.removeAttribute("questions");
+
+  // questionsDiv.setAttribute("class", "hide");
+  // scoreEl.textContent = time;
+  // console.log(time);
+
+  // timer.textContent = 0;
+}
+
+
+function submitScore() {
+
+  var name = nameEl.value;
+  if (name !== "") {
+
+      var highscore = JSON.parse(localStorage.getItem('highScores')) || [];
+ 
+
+      var myScore = {
+          score: scoreEl.innerText,
+          userName: name
+      };
+
+      highscore.push(myScore);
+      window.localStorage.setItem('highScores', JSON.stringify(highscore));
+
+      window.location.href = 'highscores.html';
+  }
+}
+// startButton.addEventListener('click', begin)
+
+
+
+// }
+
